@@ -20,16 +20,24 @@ class FamilyStructure:
         return randint(0, 99999999)
 
     def add_member(self, member):
-        # fill this method and update the return
-        pass
+        member["id"] = self._generateId()
+        self._members.append(member)
+        return member
 
     def delete_member(self, id):
-        # fill this method and update the return
-        pass
+     for member in self.members:
+        if member["id"] == id:
+            self.members.remove(member)  # Asegúrate de usar self.members y no self._members
+            print(f"El usuario {member['first_name']} ha sido eliminado")  # Cambié name a first_name
+            return {"done": True}  # Devolvemos un diccionario de éxito
+        return {
+        "error": f"No se encontró ningún miembro con ID {id} para eliminar."
+        }
 
     def get_member(self, id):
-        # fill this method and update the return
-        pass
+      for member in self.members:
+        if member ["id"]  == id:
+           return {"error":"no se encontro"}
 
     # this method is done, it returns a list with all the family members
     def get_all_members(self):
